@@ -1,0 +1,40 @@
+This is the experimental code of paper
+"Improved Approximation Algorithms for Capacitated Location Routing".
+
+Environment:
+
+1. language: c++;
+2. cmake 3.15+;
+3. g++ 11.4.0+.
+
+Code organization:
+
+1. instance: Benchmark. Note that the cost in the instances P111112-P133222 is multiplied by 10;
+2. CMakeList.txt: Cmake file;
+3. constant.h: Some static variables;
+4. factory: Greedily open depots;
+5. graph: Read data from file and build weight matrix;
+6. main.cpp: Main file;
+7. ps: Path-Alg. See the paper for details;
+8. tour: Match and shortcut;
+9. ts: Tree-Alg. See the paper for details;
+10. tsp: Finding a tsp using 3/2 approximation algorithm.
+
+Build and Execution:
+
+1. You can use g++ directly or cmake tools to compile and run,
+   before that please make sure your environment is linux/unix
+   and satisfy the minimum requirements.
+2. Using "mkdir build && cd build && cmake .. && make"
+   to generate executable file, i.e., clr.
+3. clr has two parameters: the first is dataFileName, please put dataFile
+   in "instance" folder which is same directory as clr; the second
+   parameter is Alpha. See the paper for details of parameter Alpha. 
+   For using Alpha as an integer, we use Alpha*100 in our program.
+4. Execution: "./clr dataFileName Alpha*100", e.g., "./clr P111112 100",
+   where P111112 locates in "./instance/P111112" and it means Alpha=1.
+
+OutPut:
+
+1. The output of clr are "dataFileName Tree-AlgResult Path-AlgResult Time(ns)".
+   You can change it in "main.cpp" or other files.
